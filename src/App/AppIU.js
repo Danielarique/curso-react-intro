@@ -9,6 +9,7 @@ import { TodosErrors } from "./TodosError";
 import { TodosEmpty } from "./TodosEmpty";
 import { TodosContext } from "./TodosContext";
 import { Modal } from "./Modal";
+import { TodoForm } from "./TodoForm";
 function AppIU() {
   const {loading, error, searchedTodos, completeTodo, deleteTodo, openModal, setOpenModal } = React.useContext(TodosContext)
   return (
@@ -41,15 +42,17 @@ function AppIU() {
           </TodoList>
      {/*    )}
       </TodosContext.Consumer> */}
-
-      <CreateTodoButton />
+  
+      <CreateTodoButton setOpenModal={setOpenModal} />
       {openModal && (
         <Modal>
-          La funcionalidad de agregar TODO
+         <TodoForm></TodoForm>
         </Modal>
       )}
     </React.Fragment>
   );
 }
+
+
 
 export { AppIU };
